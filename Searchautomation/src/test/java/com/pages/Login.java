@@ -15,42 +15,50 @@ import com.excelutility.Excel;
 public class Login 
 {
 	WebDriver driver;
-	public void launch(String browser) { 	
+	public void launch(String browser) 
+	{ 	
 		try
+		{
+			// for launching chrome browser 
+			if(browser.equalsIgnoreCase("chrome"))
 			{
-				// for launching chrome browser 
-				if(browser.equalsIgnoreCase("chrome"))
-				{
-					System.setProperty("webdriver.chrome.driver","D:\\selenium\\driver\\chromedriver.exe");
-					driver =new ChromeDriver();
-				}
-				
-				// for launching firefox browser
-				else if(browser.equalsIgnoreCase("firefox"))
-				{
-					System.setProperty("webdriver.gecko.driver","Driver\\geckodriver.exe");
-					driver =new FirefoxDriver();
-				}
+				System.setProperty("webdriver.chrome.driver","C:\\Users\\DELL\\git\\SEARCHAUTOMATION_CTS_PROJECT\\Searchautomation\\src\\test\\resources\\Drivers\\chromedriver.exe");
+				driver =new ChromeDriver();
 			}
-			
-			// for throwing Exceptions
-			catch(WebDriverException e)
+
+			// for launching firefox browser
+			else if(browser.equalsIgnoreCase("firefox"))
 			{
-				System.out.println("driver not avilable");
+				System.setProperty("webdriver.gecko.driver","C:\\Users\\DELL\\git\\SEARCHAUTOMATION_CTS_PROJECT\\Searchautomation\\src\\test\\resources\\Drivers\\geckodriver.exe");
+				driver =new FirefoxDriver();
 			}
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		}
+
+		// for throwing Exceptions
+		catch(WebDriverException e)
+		{
+			System.out.println("driver not avilable");
+		}
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+	}
+
+
 	public void LoginPage(String url)
 	{
 		driver.get(url);
 		System.out.println(driver.getTitle());
-	
+
 	}
+
+
 	public void Signin(String xpath)
 	{
 		driver.findElement(By.xpath(xpath)).click();
 	}
+
+	// To get login details from excel sheet
+	
 	public void usernameandpassword(int i) throws IOException
 	{
 		Excel e=new Excel();
@@ -60,19 +68,21 @@ public class Login
 		driver.findElement(By.xpath("//*[@id=\"passwd\"]")).sendKeys(e.excel_password(i));
 		WebElement f = driver.findElement(By.xpath("//*[@id=\"passwd\"]"));
 		f.click();
-	
+
 	}
+
+	//Clicking sigin button
+	
 	public void Click(String xpath)
 	{
 		driver.findElement(By.xpath(xpath)).click();
 	}
-	
-	
-	
-public void Close()
-{
-	driver.close();
-}
+
+
+	public void Close()
+	{
+		driver.close();
+	}
 }
 
 

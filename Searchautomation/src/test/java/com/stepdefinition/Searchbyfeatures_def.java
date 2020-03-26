@@ -12,9 +12,12 @@ public class Searchbyfeatures_def
 {
 	Searchbyfeatures sf=new Searchbyfeatures();
 			Searchbyfeatures s=new Searchbyfeatures();
+			
 	@Given("^Open the site url in browser$")
-	public void open_the_site_url_in_browser()  {
-		sf.launchy();
+	public void open_the_site_url_in_browser()  
+	{
+		sf.launchy("chrome");
+		sf.lauchsearchpage();
 
 		// Write code here that turns the phrase above into concrete actions
 
@@ -30,15 +33,17 @@ public class Searchbyfeatures_def
 	}
 
 	@When("^the user search the product by compositions,style$")
-	public void the_user_search_the_product_by_compositions_style()  {
+	public void the_user_search_the_product_by_compositions_style()  
+	{
 		// Write code here that turns the phrase above into concrete actions
 		sf.stylecomposition(); 
 	}
 
 	@Then("^products are displayed$")
-	public void products_are_displayed() throws IOException, InterruptedException  {
-		sf.Screenshot2();
+	public void products_are_displayed() throws IOException, InterruptedException  
+	{
 		// Write code here that turns the phrase above into concrete actions
+		sf.Screenshot2();
 		Thread.sleep(4000);
 		sf.Close();
 	}

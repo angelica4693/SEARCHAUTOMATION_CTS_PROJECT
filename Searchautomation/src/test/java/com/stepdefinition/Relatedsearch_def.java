@@ -13,7 +13,8 @@ public class Relatedsearch_def
 	 Relatedsearch rs=new Relatedsearch();
 	@Given("^Open the website url in browser$")
 	public void open_the_website_url_in_browser()  {
-		rs.launchy() ;
+		rs.launchy("chrome") ;
+		rs.launchsite();
 		
 	    // Write code here that turns the phrase above into concrete actions
 	   

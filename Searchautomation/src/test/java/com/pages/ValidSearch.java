@@ -11,44 +11,77 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ValidSearch 
 {
 	WebDriver d;
 	By locator=By.xpath("//*[@id=\"search_query_top\"]");
 	By locator1=By.xpath("//*[@id=\"searchbox\"]/button");
-	public void launchy() 
+
+	//Launching browser and website
+
+	public void launchy(String browser) 
+
 	{
-		System.setProperty("webdriver.chrome.driver","D:\\selenium\\driver\\chromedriver.exe");
-		d= new ChromeDriver();
+
+		if(browser.equalsIgnoreCase("chrome"))
+
+		{
+			System.setProperty("webdriver.chrome.driver","C:\\Users\\DELL\\git\\SEARCHAUTOMATION_CTS_PROJECT\\Searchautomation\\src\\test\\resources\\Drivers\\chromedriver.exe");
+			d =new ChromeDriver();
+		}
+
+		// for launching firefox browser
+
+		else if(browser.equalsIgnoreCase("firefox"))
+
+		{
+			System.setProperty("webdriver.gecko.driver","C:\\Users\\DELL\\git\\SEARCHAUTOMATION_CTS_PROJECT\\Searchautomation\\src\\test\\resources\\Drivers\\geckodriver.exe");
+			d=new FirefoxDriver();
+		}
+
 		d.manage().window().maximize();
 		d.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
-		d.get("http://automationpractice.com/index.php");
-	}
 
+		
+	}
+	
+	//Method to open desired page on website
+	public void launchsite()
+	{
+		d.get("http://automationpractice.com/index.php");
+		System.out.println(d.getTitle());
+		
+	}
+	
+	//Searching for a product
 	public void entervalue()
 	{
 		d.findElement(locator).sendKeys("shirt");
 	}
 	public void TapEnter()
 	{
-		
+
 		d.findElement(locator1).click();
-		JavascriptExecutor j = (JavascriptExecutor)d;
+		JavascriptExecutor j = (JavascriptExecutor)d;//scrolling down the pages
 		j.executeScript("window.scrollBy(0,600)");
-		
+
 	}
+	//Taking screenshots
+
 	public void Screenshot2() throws IOException
 	{
 		TakesScreenshot t = (TakesScreenshot)d;
 		File f = t.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(f, new File("C:\\Users\\sharo\\Downloads\\Searchautomation\\src\\test\\resources\\Screenshots\\Screenshots.png"));
+		FileUtils.copyFile(f, new File("C:\\Users\\DELL\\git\\SEARCHAUTOMATION_CTS_PROJECT\\Searchautomation\\src\\test\\resources\\Screenshots\\Screenshots.png"));
 	}
+
 	public void Close()
 	{
 		d.close();
 	}
-	}
+}
 
 
 
