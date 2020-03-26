@@ -55,11 +55,12 @@ public class ValidSearch
 		
 	}
 	
-	//Searching for a product
+	//Searching for  products
 	public void entervalue()
 	{
 		d.findElement(locator).sendKeys("shirt");
 	}
+	
 	public void TapEnter()
 	{
 

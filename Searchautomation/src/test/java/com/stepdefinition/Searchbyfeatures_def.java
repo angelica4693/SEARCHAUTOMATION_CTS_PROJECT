@@ -19,7 +19,7 @@ public class Searchbyfeatures_def
 		sf.launchy("chrome");
 		sf.lauchsearchpage();
 
-		// Write code here that turns the phrase above into concrete actions
+		
 
 	}
 
@@ -28,21 +28,21 @@ public class Searchbyfeatures_def
 	{
 		sf.mouseactions();
 		sf.sizecolour();
-		// Write code here that turns the phrase above into concrete actions
+		
 
 	}
 
 	@When("^the user search the product by compositions,style$")
 	public void the_user_search_the_product_by_compositions_style()  
 	{
-		// Write code here that turns the phrase above into concrete actions
+		
 		sf.stylecomposition(); 
 	}
 
 	@Then("^products are displayed$")
 	public void products_are_displayed() throws IOException, InterruptedException  
 	{
-		// Write code here that turns the phrase above into concrete actions
+		
 		sf.Screenshot2();
 		Thread.sleep(4000);
 		sf.Close();

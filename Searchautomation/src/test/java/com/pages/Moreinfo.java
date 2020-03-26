@@ -22,7 +22,7 @@ public class Moreinfo
 	By more_option=By.xpath("//*[@id=\"homefeatured\"]/li[1]/div/div[2]/div[2]/a[2]/span");
 
 
-	//launching the browser and website
+	// for launching the browser and website
 
 	public void launchy(String browser) 
 	{

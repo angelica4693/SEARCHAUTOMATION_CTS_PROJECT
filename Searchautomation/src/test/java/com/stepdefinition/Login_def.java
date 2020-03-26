@@ -16,7 +16,7 @@ public class Login_def
 	@Given("^Open the URL in the browser$")
 	public void open_the_URL_in_the_browser() 
 	{
-		// Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete action
 		lp.launch("Chrome");
 		lp.LoginPage("http://automationpractice.com/index.php");
 	}
@@ -24,7 +24,7 @@ public class Login_def
 	@When("^click signin$")
 	public void click_signin()  
 	{
-		// Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete action
 		lp.Click("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a"); 
 	}
 
@@ -52,7 +52,7 @@ public class Login_def
 	@Then("^Click on signin$")
 	public void click_on_Signin() throws InterruptedException 
 	{
-		// Write code here that turns the phrase above into concrete actions
+		// Write code here that turns the phrase above into concrete action
 		lp.Click("//*[@id=\"SubmitLogin\"]/span");  
 		Thread.sleep(4000);
 		lp.Close();

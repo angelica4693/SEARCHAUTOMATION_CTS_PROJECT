@@ -83,7 +83,7 @@ public class Searchbyfeatures
 		d.findElement(style).click();
 	}
 
-	//Taking screenshots
+	//Taking screenshots of the scenario
 	public void Screenshot2() throws IOException
 
 	{

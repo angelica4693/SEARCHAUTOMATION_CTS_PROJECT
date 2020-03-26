@@ -48,7 +48,7 @@ public class Relatedsearch
 		d.get("http://automationpractice.com/index.php");
 		System.out.println(d.getTitle());
 	}
-	//Methods for executing related searches
+	//Methods for executing related searches in the site
 
 	public void relatedsearch()
 	{

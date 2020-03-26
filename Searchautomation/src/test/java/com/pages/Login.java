@@ -43,7 +43,7 @@ public class Login
 		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 	}
 
-
+// For launching login page
 	public void LoginPage(String url)
 	{
 		driver.get(url);

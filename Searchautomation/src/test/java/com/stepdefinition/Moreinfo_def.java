@@ -15,16 +15,17 @@ public class Moreinfo_def
 	@Given("^Open the web url in the  browser$")
 	public void open_the_web_url_in_the_browser()
 	{
+		
 		mi.launchy("chrome");
 		mi.launchpage();
-		// Write code here that turns the phrase above into concrete actions
+		
 
 	}
 
 	@When("^the user clicks the more button$")
 	public void the_user_clicks_the_more_button()  
 	{
-		// Write code here that turns the phrase above into concrete actions
+		
 
 		mi.mouseactions();
 
@@ -33,7 +34,7 @@ public class Moreinfo_def
 	@Then("^the website navigates to the next page and displays the additional information$")
 	public void the_website_navigates_to_the_next_page_and_displays_the_additional_information() throws IOException, InterruptedException  
 	{
-		// Write code here that turns the phrase above into concrete actions
+		
 		mi.Screenshot2();
 		Thread.sleep(4000);
 		mi.Close();  
